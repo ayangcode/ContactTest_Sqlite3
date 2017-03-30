@@ -32,7 +32,7 @@ struct ContactModel {
         self.numbers = numbers
     }
     
-    //将自身插入数据库接口
+    //将联系人插入数据库接口
     func insertContactModelToSqliteDB() -> Int {
         //插入SQL语句
         // 将数组转为字符串 方便存储

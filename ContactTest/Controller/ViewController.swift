@@ -113,8 +113,7 @@ class ViewController: UIViewController {
                 var model = ContactModel(name: name as! String, mobileNumber: number as! String, numbers: numbers);
                 model.ID = ID
                 contactModelArrM.append(model)
-                
-                
+
             }
            
             return contactModelArrM
@@ -164,7 +163,7 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         headerView.addGestureRecognizer(longTap)
         
         let model:ContactModel = contactArr[section] as! ContactModel
-        if model.numbers.count > 1 {
+        if model.numbers.count > 1 { // 判断是否有更多号码，是否显示更多标志(展开功能暂时没实现)
             headerView.isMore(true)
             headerView.tapedSection = section
         }else {
