@@ -31,7 +31,7 @@
 		76312A8B1E8AA12700DCFCE9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		76312A8D1E8AA12F00DCFCE9 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		76312A8F1E8AA13800DCFCE9 /* YSqlite3Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSqlite3Manager.swift; sourceTree = "<group>"; };
-		76312A931E8AA8C300DCFCE9 /* ContactTableViewTitleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewTitleHeaderView.swift; sourceTree = "<group>"; };
+		76312A931E8AA8C300DCFCE9 /* ContactTableViewTitleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactTableViewTitleHeaderView.swift; path = ../View/ContactTableViewTitleHeaderView.swift; sourceTree = "<group>"; };
 		76312A961E8AA9DB00DCFCE9 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		766555A41E855B65005BBA1E /* ContactTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContactTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		766555A81E855B93005BBA1E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -96,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				76312A8D1E8AA12F00DCFCE9 /* ContactModel.swift */,
+				76312A931E8AA8C300DCFCE9 /* ContactTableViewTitleHeaderView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 		76312A8A1E8AA10300DCFCE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				76312A931E8AA8C300DCFCE9 /* ContactTableViewTitleHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -33,18 +33,20 @@ struct ContactModel {
     }
     
     //将自身插入数据库接口
-    func insertContactModelToSqliteDB() -> Bool {
+    func insertContactModelToSqliteDB() -> Int {
         //插入SQL语句
         // 将数组转为字符串 方便存储
         
         let numbersStr = numbers.joined(separator: ",")
         let insertSQL = "INSERT INTO 't_Contact' (name,number,numbers) VALUES ('\(name)','\(mobileNumber)','\(numbersStr)');"
-        if YSqlite3Manager.sharedInstance().execSQL(SQL: insertSQL) {
-            return true
+        let id = YSqlite3Manager.sharedInstance().execSQLReturnID(SQL: insertSQL)
+        if id > 0 { // 若id大于0
+            return id
         }else{
-            return false
+            return -1
         }
     }
+    //删除联系人
     func deleteContactModelFromSqliteDB(_ id:Int) -> Bool {
         let deleteSQL = " DELETE FROM t_Contact WHERE ID = '\(id)';"
         if YSqlite3Manager.sharedInstance().execSQL(SQL: deleteSQL) {

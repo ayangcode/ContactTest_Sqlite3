@@ -84,6 +84,18 @@ class YSqlite3Manager: NSObject {
             return false
         }
     }
+    /**
+     * 对数据库表进行操作时返回所操作目标的自增长ID
+     */
+    func execSQLReturnID(SQL: String) -> Int {
+        if !execSQL(SQL: SQL) {
+            return -1
+        }
+        // 返回自动增长 id
+        let id:Int64 = Int64(sqlite3_last_insert_rowid(db))
+        let intId:Int = Int(id)
+        return intId
+    }
     
     // MARK:- | ****** 根据sql语句进行查询 ****** |
     

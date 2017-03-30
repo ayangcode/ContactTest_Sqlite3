@@ -216,12 +216,12 @@ extension ViewController : CNContactPickerDelegate {
         }
         
         // 获取的数据存放至model
-        let model = ContactModel(name: name, mobileNumber: tempArr[0] as! String, numbers: tempArr as! Array<String>)
-        if model.insertContactModelToSqliteDB() == true{
+        var model = ContactModel(name: name, mobileNumber: tempArr[0] as! String, numbers: tempArr as! Array<String>)
+        let id:Int = model.insertContactModelToSqliteDB() // 获取id并赋值给model (防止刚添加联系人时，删除联系人找不到id)
+        if id > 0 {
+            model.ID = id
             contactArr.append(model)
-    
             self.tableView.insertSections(IndexSet.init(integer: self.contactArr.count - 1), with: .bottom)
-
         }else {
             print("插入数据失败")
         }
@@ -238,16 +238,22 @@ extension ViewController : CNContactPickerDelegate {
 
 // MARK:- | ****** 其他点击事件 ****** |
 extension ViewController {
+    /**
+     * 点击添加联系人
+     */
     func btnAddContactTaped(sender:UIButton) -> Void {
         showContactUI() // 弹出通讯录
     }
-    
+    /**
+     * 长按删除联系人
+     */
     func longTapToDeleteContact(tap:UILongPressGestureRecognizer) -> Void {
-        
+    
         let alert = UIAlertController(title: nil, message: "是否删除该联系人?", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "确定", style: .destructive) { (action) in
             let model : ContactModel = self.contactArr[(tap.view?.tag)!] as! ContactModel
+            print(model.ID)
             self.contactArr.remove(at: (tap.view?.tag)!)
             if model.deleteContactModelFromSqliteDB(model.ID) {
                 print("删除成功")
